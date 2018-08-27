@@ -4,7 +4,8 @@ import Input from "./components/input/input";
 
 export default class App extends React.Component {
   state = {
-    value: ''
+    value: '',
+    jokes: [],
   };
 
   //function syntax
@@ -15,13 +16,12 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Input 
+        <Input
+          updateJokes={(jokes) => this.setState( { jokes: jokes } )} 
           value={this.state.value}
           onChange={(value) => this.setState( { value: value } )}
         />
-        <TouchableHighlight onPress={this.IncreaseByOne} style={styles.button}>
-          <Text>Submit</Text>
-        </TouchableHighlight>
+        {/* access state from here for whichever Component we want */}
         <Text>Open up App.js to start working on your app!</Text>
         <Text>Changes you make will automatically reload.</Text>
       </View>
