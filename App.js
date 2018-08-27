@@ -1,24 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-
+import React from "react";
+import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import Input from "./components/input/input";
 
 export default class App extends React.Component {
   state = {
-    count: 0
-  }
+    value: ''
+  };
 
   //function syntax
   IncreaseByOne = () => {
-    console.log('pressed');
-  }
+    console.log("pressed");
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight 
-        onPress={this.IncreaseByOne}
-        style={styles.button}
-        >
+        <Input 
+          value={this.state.value}
+          onChange={(value) => this.setState( { value: value } )}
+        />
+        <TouchableHighlight onPress={this.IncreaseByOne} style={styles.button}>
           <Text>Submit</Text>
         </TouchableHighlight>
         <Text>Open up App.js to start working on your app!</Text>
@@ -31,9 +32,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
   },
   button: {
     width: 100,
